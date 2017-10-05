@@ -1,0 +1,20 @@
+"Phrases"
+{
+	"EndRoundFF_Chat"
+	{
+		"#format"	"{1:s}"
+		"en"		"End of round friendly fire has been {1}."
+	}
+
+	"EndRoundFF_Center"
+	{
+		"#format"	"{1:s}"
+		"en"		"End of round friendly fire has been {1}."
+	}
+
+	"EndRoundFF_Hint"
+	{
+		"#format"	"{1:s}"
+		"en"		"End of round friendly fire has been {1}."
+	}
+}

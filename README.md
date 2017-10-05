@@ -1,4 +1,4 @@
-# TF2-EndRoundFF
+# TF2 End of Round Friendly Fire
 https://forums.alliedmods.net/showthread.php?t=301792
 
 # Installation:

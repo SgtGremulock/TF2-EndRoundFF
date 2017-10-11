@@ -2,7 +2,7 @@
 #include <sourcemod>
 
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
-#define PLUGIN_VERSION "1.2"
+#define PLUGIN_VERSION "1.3"
 
 #define ENABLED "enabled"
 #define DISABLED "disabled"
@@ -23,6 +23,7 @@ public Plugin myinfo =
 
 public void OnPluginStart()
 {
+	CreateCmds();
 	CreateCvars();
 	HookEvents();
 
@@ -37,6 +38,33 @@ public void Cvar_Update(ConVar cvar, const char[] oldValue, const char[] newValu
 public void OnMapStart()
 {
 	UpdateCvars();
+}
+
+/* Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+CreateCmds()
+{
+	RegAdminCmd("sm_toggle_endroundff", Command_ToggleEndRoundFF, ADMFLAG_GENERIC);
+}
+
+public Action Command_ToggleEndRoundFF(int client, int args)
+{
+	if (bEnabled)
+	{
+		bEnabled = false;
+		ReplyToCommand(client, "[SM] Disabled end of round friendly fire.");
+
+		return Plugin_Handled;
+	}
+	else if (!bEnabled)
+	{
+		bEnabled = true;
+		ReplyToCommand(client, "[SM] Enabled end of round friendly fire.");
+
+		return Plugin_Handled;
+	}
+
+	return Plugin_Handled;
 }
 
 /* Events ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

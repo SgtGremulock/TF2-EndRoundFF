@@ -1,5 +1,7 @@
 #pragma semicolon 1
 #include <sourcemod>
+#undef REQUIRE_PLUGIN
+#include <updater>
 
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
 #define PLUGIN_VERSION "1.3"

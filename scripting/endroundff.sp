@@ -4,6 +4,8 @@
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
 #define PLUGIN_VERSION "1.3"
 
+#define UPDATE_URL "https://raw.githubusercontent.com/SgtGremulock/TF2-EndRoundFF/master/updater.txt"
+
 #define ENABLED "enabled"
 #define DISABLED "disabled"
 
@@ -25,6 +27,7 @@ public void OnPluginStart()
 {
 	CreateCmds();
 	CreateCvars();
+	AddUpdater();
 	HookEvents();
 
 	LoadTranslations("endroundff.phrases");
@@ -106,7 +109,23 @@ stock UpdateCvars()
 	bChat 		= hConVars[1].BoolValue;
 	bCenter 	= hConVars[2].BoolValue;
 	bHint 		= hConVars[3].BoolValue;
-	bFF			= hConVars[4].BoolValue;
+	bFF		= hConVars[4].BoolValue;
+}
+
+stock AddUpdater()
+{
+	if (LibraryExists("updater"))
+	{
+		Updater_AddPlugin(UPDATE_URL);
+	}
+}
+
+public OnLibraryAdded(const char[] name)
+{
+    if (StrEqual(name, "updater"))
+    {
+        Updater_AddPlugin(UPDATE_URL);
+    }
 }
 
 stock HookEvents()

@@ -56,14 +56,14 @@ public Action Command_ToggleEndRoundFF(int client, int args)
 {
 	if (bEnabled)
 	{
-		hConVars[0].SetBool = false;
+		hConVars[0].SetBool(false);
 		ReplyToCommand(client, "[SM] Disabled end of round friendly fire.");
 
 		return Plugin_Handled;
 	}
 	else if (!bEnabled)
 	{
-		hConVars[0].SetBool = true;
+		hConVars[0].SetBool(true);
 		ReplyToCommand(client, "[SM] Enabled end of round friendly fire.");
 
 		return Plugin_Handled;

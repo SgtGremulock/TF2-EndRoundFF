@@ -34,7 +34,7 @@ public void OnPluginStart()
 
 	LoadTranslations("endroundff.phrases");
 }
-
+ 
 public void Cvar_Update(ConVar cvar, const char[] oldValue, const char[] newValue)
 {
 	UpdateCvars();

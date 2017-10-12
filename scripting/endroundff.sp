@@ -4,7 +4,7 @@
 #include <updater>
 
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
-#define PLUGIN_VERSION "1.3"
+#define PLUGIN_VERSION "1.4"
 
 #define UPDATE_URL "https://raw.githubusercontent.com/SgtGremulock/TF2-EndRoundFF/master/updater.txt"
 

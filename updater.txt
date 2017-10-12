@@ -1,0 +1,22 @@
+"Updater"
+{
+	"Information"
+	{
+		"Version"
+		{
+			"Latest"	"1.3"
+		}
+		
+		"Notes"	"More info @ https://github.com/SgtGremulock/TF2-EndRoundFF. Changes in v1.3:"
+		"Notes"	"*Added feature to toggle the plugin with admin command (sm_toggle_endroundff)"
+		"Notes"	"*Minor code changes"
+	}
+	
+	"Files"
+	{
+		"Plugin"	"Path_SM/plugins/endroundff.smx"
+		"Plugin"	"Path_SM/translations/endroundff.phrases.txt"
+		
+		"Source"	"Path_SM/scripting/endroundff.sp"
+	}
+}

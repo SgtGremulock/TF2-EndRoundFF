@@ -7,7 +7,7 @@
 			"Latest"	"1.4"
 		}
 		
-		"Notes"	"More info @ https://github.com/SgtGremulock/TF2-EndRoundFF. Changes in v1.3:"
+		"Notes"	"More info @ https://github.com/SgtGremulock/TF2-EndRoundFF. Changes in v1.4:"
 		"Notes"	"*Added feature to toggle the plugin with admin command (sm_toggle_endroundff)"
 		"Notes"	"*Minor code changes"
 	}

@@ -4,12 +4,12 @@
 	{
 		"Version"
 		{
-			"Latest"	"1.4"
+			"Latest"	"1.5"
 		}
 		
-		"Notes"	"More info @ https://github.com/SgtGremulock/TF2-EndRoundFF. Changes in v1.4:"
-		"Notes"	"*Added feature to toggle the plugin with admin command (sm_toggle_endroundff)"
-		"Notes"	"*Minor code changes"
+		"Notes"	"More info @ https://github.com/SgtGremulock/TF2-EndRoundFF. Changes in v1.5:"
+		"Notes"	"*Made the text messages a bit more appealing."
+		"Notes"	"*Added chat tag for the messages."
 	}
 	
 	"Files"

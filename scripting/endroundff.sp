@@ -1,13 +1,13 @@
 #pragma semicolon 1
 #include <sourcemod>
-#undef REQUIRE_PLUGIN
-#include <updater>
+#include <morecolors>
 
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
-#define PLUGIN_VERSION "1.4"
+#define PLUGIN_VERSION "1.5"
 
-#define UPDATE_URL "https://raw.githubusercontent.com/SgtGremulock/TF2-EndRoundFF/master/updater.txt"
-
+#define CTAG "{GREEN}[{LIGHTGREEN}End Round FF{GREEN}]{DEFAULT} %t"
+#define CENABLED "{GREEN}enabled"
+#define CDISABLED "{RED}disabled"
 #define ENABLED "enabled"
 #define DISABLED "disabled"
 
@@ -29,12 +29,11 @@ public void OnPluginStart()
 {
 	CreateCmds();
 	CreateCvars();
-	AddUpdater();
 	HookEvents();
 
 	LoadTranslations("endroundff.phrases");
 }
- 
+
 public void Cvar_Update(ConVar cvar, const char[] oldValue, const char[] newValue)
 {
 	UpdateCvars();
@@ -56,14 +55,14 @@ public Action Command_ToggleEndRoundFF(int client, int args)
 {
 	if (bEnabled)
 	{
-		hConVars[0].SetBool(false);
+		bEnabled = false;
 		ReplyToCommand(client, "[SM] Disabled end of round friendly fire.");
 
 		return Plugin_Handled;
 	}
 	else if (!bEnabled)
 	{
-		hConVars[0].SetBool(true);
+		bEnabled = true;
 		ReplyToCommand(client, "[SM] Enabled end of round friendly fire.");
 
 		return Plugin_Handled;
@@ -111,23 +110,7 @@ stock UpdateCvars()
 	bChat 		= hConVars[1].BoolValue;
 	bCenter 	= hConVars[2].BoolValue;
 	bHint 		= hConVars[3].BoolValue;
-	bFF		= hConVars[4].BoolValue;
-}
-
-stock AddUpdater()
-{
-	if (LibraryExists("updater"))
-	{
-		Updater_AddPlugin(UPDATE_URL);
-	}
-}
-
-public OnLibraryAdded(const char[] name)
-{
-    if (StrEqual(name, "updater"))
-    {
-        Updater_AddPlugin(UPDATE_URL);
-    }
+	bFF			= hConVars[4].BoolValue;
 }
 
 stock HookEvents()
@@ -146,7 +129,7 @@ stock Announce_Enabled()
 
 			if (bChat)
 			{
-				PrintToChatAll("[SM] %t", "EndRoundFF_Chat", ENABLED);
+				CPrintToChatAll(CTAG, "EndRoundFF_Chat", CENABLED);
 			}
 
 			if (bCenter)
@@ -174,7 +157,7 @@ stock Announce_Disabled()
 
 			if (bChat)
 			{
-				PrintToChatAll("[SM] %t", "EndRoundFF_Chat", DISABLED);
+				CPrintToChatAll(CTAG, "EndRoundFF_Chat", CDISABLED);
 			}
 
 			if (bCenter)

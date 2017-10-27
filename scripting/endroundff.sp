@@ -1,9 +1,13 @@
 #pragma semicolon 1
 #include <sourcemod>
 #include <morecolors>
+#undef REQUIRE_PLUGIN
+#include <updater>
 
 #define PLUGIN_AUTHOR "Sgt. Gremulock"
-#define PLUGIN_VERSION "1.5"
+#define PLUGIN_VERSION "1.6"
+
+#define UPDATE_URL "https://raw.githubusercontent.com/SgtGremulock/TF2-EndRoundFF/master/updater.txt"
 
 #define CTAG "{GREEN}[{LIGHTGREEN}End Round FF{GREEN}]{DEFAULT} %t"
 #define CENABLED "{GREEN}enabled"
@@ -30,6 +34,7 @@ public void OnPluginStart()
 	CreateCmds();
 	CreateCvars();
 	HookEvents();
+	AddUpdater();
 
 	LoadTranslations("endroundff.phrases");
 }
@@ -43,6 +48,23 @@ public void OnMapStart()
 {
 	UpdateCvars();
 }
+
+void AddUpdater()
+{
+	if (LibraryExists("updater"))
+	{
+		Updater_AddPlugin(UPDATE_URL);
+	}
+}
+
+public void OnLibraryAdded(const char[] name)
+{
+    if (StrEqual(name, "updater"))
+    {
+        Updater_AddPlugin(UPDATE_URL);
+    }
+}
+
 
 /* Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -110,7 +132,7 @@ stock UpdateCvars()
 	bChat 		= hConVars[1].BoolValue;
 	bCenter 	= hConVars[2].BoolValue;
 	bHint 		= hConVars[3].BoolValue;
-	bFF			= hConVars[4].BoolValue;
+	bFF		= hConVars[4].BoolValue;
 }
 
 stock HookEvents()

@@ -1,0 +1,20 @@
+"Phrases"
+{
+	"EndRoundFF_Chat"
+	{
+		"#format"	"{1:s}"
+		"ru"		"Огонь по своим в конце раунда {1}."
+	}
+
+	"EndRoundFF_Center"
+	{
+		"#format"	"{1:s}"
+		"ru"		"Огонь по своим в конце раунда {1}."
+	}
+
+	"EndRoundFF_Hint"
+	{
+		"#format"	"{1:s}"
+		"ru"		"Огонь по своим в конце раунда {1}."
+	}
+}
